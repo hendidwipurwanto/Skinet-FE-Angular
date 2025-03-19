@@ -1,15 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { ShopService } from '../../../core/services/shop.service';
 import {MatDivider} from '@angular/material/divider';
-import {MatButtonModule} from '@angular/material/button';
+import {MatButton, MatButtonModule} from '@angular/material/button';
 import {MatListOption, MatSelectionList} from '@angular/material/list'
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-filters-dialog',
   standalone: true,
   imports: [
     MatDivider,
-    MatButtonModule,
+    MatButton,
+    FormsModule,
     MatSelectionList,
     MatListOption
   ],
