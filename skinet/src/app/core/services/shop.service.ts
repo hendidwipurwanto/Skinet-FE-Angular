@@ -1,3 +1,4 @@
+import { ShopParams } from './../../shared/models/shopParams';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Pagination } from '../../shared/models/pagination';
@@ -12,19 +13,19 @@ export class ShopService {
   types: string[] = [];
  brands:string[] = [];
 
-  getProducts(brands?: string[], types?: string[],sort?:string){
+  getProducts(ShopParams:ShopParams){
     let params = new HttpParams();
 
-    if(brands && brands.length >0){
-        params=params.append('brands',brands.join(','))
+    if(ShopParams.brands.length >0){
+        params=params.append('brands',ShopParams.brands.join(','))
     }
 
-    if(types && types.length >0){
-      params=params.append('brands',types.join(','))
+    if(ShopParams.types.length >0){
+      params=params.append('brands',ShopParams.types.join(','))
   }
 
-    if(sort){
-        params=params.append('sort',sort);
+    if(ShopParams.sort){
+        params=params.append('sort',ShopParams.sort);
     }
 
     params=params.append('pageSize',20);
